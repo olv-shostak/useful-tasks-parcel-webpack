@@ -1,4 +1,4 @@
-const { writeFile, readFile } = require('./file-storage.servise');
+const { writeFile, readFile } = require('./file-storage.service');
 
 const fileName = 'some-file.txt';
 

@@ -1,0 +1,20 @@
+const { isValidCreds } = require('./auth.service');
+const express = require('express');
+
+// console.log(isValidCreds('mylogin', 'mypassword'));
+
+const app = express();
+
+app.get('/auth', function (req, res) {
+  const { login, password } = req.query;
+  const textResp = `Your creds is ${
+    isValidCreds(login, password) ? 'valid' : 'invalid'
+  }`;
+  res.send(textResp);
+});
+
+app.get('*', function (req, res) {
+  res.status(404).send('Not found');
+});
+
+app.listen(3000);
